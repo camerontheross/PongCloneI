@@ -1,27 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://7feiystvlqnq"]
+[gd_scene load_steps=8 format=3 uid="uid://7feiystvlqnq"]
 
+[ext_resource type="Script" uid="uid://jmt4s40tgl5e" path="res://scripts/user_interface.gd" id="1_o3mcv"]
 [ext_resource type="PackedScene" uid="uid://cd7bun7kekqce" path="res://scenes/bounce_wall.tscn" id="1_up7i2"]
-[ext_resource type="Script" uid="uid://cjp6lpr6ua6bn" path="res://scripts/ui.gd" id="1_uxdv6"]
 [ext_resource type="PackedScene" uid="uid://d21vhk66swn6n" path="res://scenes/score_wall.tscn" id="2_ahd6f"]
 [ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_o3mcv"]
 [ext_resource type="PackedScene" uid="uid://bb2pes6wlheoq" path="res://scenes/paddle.tscn" id="3_llouv"]
-[ext_resource type="PackedScene" uid="uid://tnvbfxtk485j" path="res://scenes/paddle_computer.tscn" id="6_y3h56"]
+[ext_resource type="PackedScene" uid="uid://cj6i60oh5ic80" path="res://scenes/pause_menu.tscn" id="3_y3h56"]
+[ext_resource type="PackedScene" uid="uid://bg4ocn01gvnms" path="res://scenes/paddleP2.tscn" id="7_o3mcv"]
 
 [node name="main" type="Node2D"]
 
-[node name="UI" type="Node" parent="."]
-script = ExtResource("1_uxdv6")
-
-[node name="Background" type="ColorRect" parent="UI"]
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o3mcv")
+
+[node name="Background" type="ColorRect" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CenterLine" type="ColorRect" parent="UI"]
+[node name="CenterLine" type="ColorRect" parent="UserInterface"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -35,7 +52,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="score_display_left" type="Label" parent="UI"]
+[node name="score_display_left" type="Label" parent="UserInterface"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -50,7 +68,8 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="score_display_right" type="Label" parent="UI"]
+[node name="score_display_right" type="Label" parent="UserInterface"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -64,6 +83,20 @@ theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PauseMenu" parent="UserInterface" instance=ExtResource("3_y3h56")]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
 
 [node name="Edges" type="Node" parent="."]
 
@@ -88,7 +121,7 @@ z_index = 1
 position = Vector2(106, 324)
 slide_on_ceiling = false
 
-[node name="computer" parent="Paddles" instance=ExtResource("6_y3h56")]
+[node name="paddleP2" parent="Paddles" instance=ExtResource("7_o3mcv")]
 position = Vector2(1078, 324)
 
 [node name="Camera2D" type="Camera2D" parent="."]

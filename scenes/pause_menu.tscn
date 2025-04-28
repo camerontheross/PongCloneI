@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://cj6i60oh5ic80"]
+
+[ext_resource type="Script" uid="uid://blviswib3l25o" path="res://scripts/pause_menu.gd" id="1_kukqi"]
+[ext_resource type="FontFile" uid="uid://htbwdsovgl7k" path="res://assets/fonts/PixelOperator8.ttf" id="1_n87rw"]
+[ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_myx47"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kukqi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l7mv"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kukqi")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.607843)
+
+[node name="Title" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -129.0
+offset_right = 160.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 64
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dynamic_Elements" type="VBoxContainer" parent="."]
+process_mode = 3
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -49.0
+offset_right = 84.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Restart" type="Button" parent="Dynamic_Elements"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_pressed_color = Color(0.346155, 3.70005e-07, 7.21961e-08, 1)
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_myx47")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kukqi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+text = "Restart"
+
+[node name="Options" type="Button" parent="Dynamic_Elements"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.346155, 3.70005e-07, 7.21961e-08, 1)
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_myx47")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7l7mv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="Dynamic_Elements"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.346155, 3.70005e-07, 7.21961e-08, 1)
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_myx47")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7l7mv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+text = "Exit to Menu
+"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Dynamic_Elements/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Dynamic_Elements/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Dynamic_Elements/Exit" to="." method="_on_exit_pressed"]
