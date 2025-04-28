@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvyywymjwse1d"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ja2wi"]
-distance = -649.0
-
-[node name="Area2D" type="Area2D"]
-
-[node name="collider" type="CollisionShape2D" parent="."]
-shape = SubResource("WorldBoundaryShape2D_ja2wi")

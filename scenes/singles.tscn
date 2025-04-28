@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://qyb75576tckm"]
+
+[ext_resource type="PackedScene" uid="uid://cd7bun7kekqce" path="res://scenes/bounce_wall.tscn" id="1_5hu0a"]
+[ext_resource type="Script" uid="uid://cjp6lpr6ua6bn" path="res://scripts/ui.gd" id="1_qrs7l"]
+[ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_cn4jo"]
+[ext_resource type="PackedScene" uid="uid://d21vhk66swn6n" path="res://scenes/score_wall.tscn" id="2_mdcvq"]
+[ext_resource type="PackedScene" uid="uid://bb2pes6wlheoq" path="res://scenes/paddle.tscn" id="3_0ib70"]
+[ext_resource type="PackedScene" uid="uid://tnvbfxtk485j" path="res://scenes/paddle_computer.tscn" id="4_mdcvq"]
+
+[node name="main" type="Node2D"]
+
+[node name="UI" type="Node" parent="."]
+script = ExtResource("1_qrs7l")
+
+[node name="Background" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterLine" type="ColorRect" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -400.0
+offset_right = 4.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="score_display_left" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 8.0
+offset_right = -32.0
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_cn4jo")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score_display_right" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 96.0
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_cn4jo")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Edges" type="Node" parent="."]
+
+[node name="ceiling" parent="Edges" instance=ExtResource("1_5hu0a")]
+position = Vector2(1, -6)
+
+[node name="floor" parent="Edges" instance=ExtResource("1_5hu0a")]
+position = Vector2(-11, 653)
+
+[node name="score_wall_left" parent="Edges" instance=ExtResource("2_mdcvq")]
+unique_name_in_owner = true
+position = Vector2(-11, 9)
+
+[node name="score_wall_right" parent="Edges" instance=ExtResource("2_mdcvq")]
+unique_name_in_owner = true
+position = Vector2(1162, 7)
+
+[node name="Paddles" type="Node" parent="."]
+
+[node name="paddle" parent="Paddles" instance=ExtResource("3_0ib70")]
+z_index = 1
+position = Vector2(106, 324)
+slide_on_ceiling = false
+
+[node name="computer" parent="Paddles" instance=ExtResource("4_mdcvq")]
+position = Vector2(1078, 324)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwu2dyoaqxwc"]
+
+[ext_resource type="Texture2D" uid="uid://cxlqb5k6s2tg4" path="res://assets/sprites/him.png" id="1_pqmtl"]
+[ext_resource type="Script" uid="uid://nqcq3qw0q3b7" path="res://scripts/him.gd" id="2_ee6ad"]
+
+[node name="Him" type="Sprite2D"]
+scale = Vector2(2.54113, 1.42842)
+texture = ExtResource("1_pqmtl")
+script = ExtResource("2_ee6ad")
