@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://qyb75576tckm"]
+[gd_scene load_steps=5 format=3 uid="uid://qyb75576tckm"]
 
 [ext_resource type="Texture2D" uid="uid://cxlqb5k6s2tg4" path="res://assets/dhfa9jn-d9d41de6-87f7-418c-a00c-ca7da274976c.png" id="1_0wfyh"]
-[ext_resource type="Script" uid="uid://dnj3b7kmuapcv" path="res://dhfa_9_jn_d_9d_41_de_6_87f_7_418c_a_00c_ca_7_da_274976c.gd" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bb2pes6wlheoq" path="res://scenes/paddle.tscn" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://dnj3b7kmuapcv" path="res://scripts/dhfa_9_jn_d_9d_41_de_6_87f_7_418c_a_00c_ca_7_da_274976c.gd" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dvyywymjwse1d" path="res://scenes/collider.tscn" id="3_sugp2"]
 
 [node name="main" type="Node2D"]
 
@@ -11,3 +13,13 @@ scale = Vector2(2.57576, 1.45727)
 texture = ExtResource("1_0wfyh")
 centered = false
 script = ExtResource("2_sugp2")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_jyhfs")]
+position = Vector2(0, 2)
+
+[node name="Collides" type="Node" parent="."]
+
+[node name="collider" parent="Collides" instance=ExtResource("3_sugp2")]
+
+[node name="collider2" parent="Collides" instance=ExtResource("3_sugp2")]
+position = Vector2(0, -650)
