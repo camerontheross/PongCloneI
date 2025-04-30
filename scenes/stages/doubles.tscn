@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://7feiystvlqnq"]
 
 [ext_resource type="Script" uid="uid://jmt4s40tgl5e" path="res://scripts/user_interface.gd" id="1_o3mcv"]
-[ext_resource type="PackedScene" uid="uid://cd7bun7kekqce" path="res://scenes/bounce_wall.tscn" id="1_up7i2"]
-[ext_resource type="PackedScene" uid="uid://d21vhk66swn6n" path="res://scenes/score_wall.tscn" id="2_ahd6f"]
+[ext_resource type="PackedScene" uid="uid://cd7bun7kekqce" path="res://scenes/components/bounce_wall.tscn" id="1_up7i2"]
+[ext_resource type="PackedScene" uid="uid://d21vhk66swn6n" path="res://scenes/components/score_wall.tscn" id="2_ahd6f"]
 [ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_o3mcv"]
-[ext_resource type="PackedScene" uid="uid://bb2pes6wlheoq" path="res://scenes/paddle.tscn" id="3_llouv"]
-[ext_resource type="PackedScene" uid="uid://cj6i60oh5ic80" path="res://scenes/pause_menu.tscn" id="3_y3h56"]
-[ext_resource type="PackedScene" uid="uid://bg4ocn01gvnms" path="res://scenes/paddleP2.tscn" id="7_o3mcv"]
+[ext_resource type="PackedScene" uid="uid://bb2pes6wlheoq" path="res://scenes/entity/paddle.tscn" id="3_llouv"]
+[ext_resource type="PackedScene" uid="uid://cj6i60oh5ic80" path="res://scenes/menu/pause_menu.tscn" id="3_y3h56"]
+[ext_resource type="PackedScene" uid="uid://bg4ocn01gvnms" path="res://scenes/entity/paddleP2.tscn" id="7_o3mcv"]
 
 [node name="main" type="Node2D"]
 
