@@ -3,8 +3,8 @@ extends Control
 #defining variables and constants at top
 #@onready lets us start the game with points set to 0
 #typecast to int to save resources
-@onready var score_left: int = 0
-@onready var score_right: int = 0
+@onready var points_left: int = 0
+@onready var points_right: int = 0
 #score walls were givin access as unique name property
 #this is because we're not gonna have more than one of each 
 #gets rid of that gross looking file path text
@@ -19,9 +19,16 @@ extends Control
 #reference to the pause menu
 
 # when left side scores
-func left_add_point():
-	score_left += 1
-	score_display_left.text = str(score_left)
+func left_add_points():
+	points_left += 1
+	score_display_left.text = str(points_left)
 #when right side scores
-func right_score():
-	score_right += 1
+func right_add_points():
+	points_right += 1
+	score_display_left.text = str(points_right)
+
+
+func score_left(ball: Area2D) -> void:
+	right_add_points()
+	print (ball)
+	ball.emit_signal("reset()")

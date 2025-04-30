@@ -110,6 +110,7 @@ position = Vector2(-11, 653)
 [node name="score_wall_left" parent="Edges" instance=ExtResource("2_mdcvq")]
 unique_name_in_owner = true
 position = Vector2(-11, 9)
+collision_mask = 2
 
 [node name="score_wall_right" parent="Edges" instance=ExtResource("2_mdcvq")]
 unique_name_in_owner = true
@@ -120,13 +121,19 @@ position = Vector2(1162, 7)
 [node name="paddle" parent="Paddles" instance=ExtResource("3_0ib70")]
 z_index = 1
 position = Vector2(106, 324)
+collision_layer = 3
+collision_mask = 3
 slide_on_ceiling = false
 
 [node name="computer" parent="Paddles" instance=ExtResource("4_mdcvq")]
 position = Vector2(1078, 324)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 
 [node name="Ball" parent="." instance=ExtResource("8_qqgp2")]
 position = Vector2(575, 324)
+
+[connection signal="area_entered" from="Edges/score_wall_left" to="UserInterface" method="score_left"]

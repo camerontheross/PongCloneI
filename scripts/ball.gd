@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
-const SPEED: int = 400
+const MAX_SPEED: int = 750
+const SERVE_SPEED: int = 400
+var speed: int = 0
 var center
 var direction: int
+@export var acceleration = 50
+signal reset()
 
 func _ready():
 	
@@ -10,6 +14,7 @@ func _ready():
 	#center of the screen using the viewport
 	center = get_viewport().get_visible_rect().size / 2
 	position = center
+	speed = SERVE_SPEED
 	
 	#randomize sets a new seed based on the time
 	randomize()
@@ -21,7 +26,7 @@ func _ready():
 func serve():
 	position = center
 	direction *= -1
-
+	speed = SERVE_SPEED
 
 func _physics_process(delta):
 	
@@ -29,5 +34,17 @@ func _physics_process(delta):
 		serve()
 	
 	velocity.x = direction
-	velocity = velocity.normalized() * SPEED 
+	velocity = velocity.normalized() * speed
 	move_and_collide(velocity * delta) 
+
+func bounce(body: Node2D) -> void:
+	#print ("cameron isn't that bad actually")
+	direction *= -1
+	if speed < MAX_SPEED:
+		speed += acceleration
+	print (speed)
+
+
+
+func _on_reset() -> void:
+	serve()
