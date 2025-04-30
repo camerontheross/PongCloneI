@@ -53,10 +53,10 @@ func _physics_process(delta):
 	#checks for player input
 	if Input.is_action_pressed("up"):
 		#handles UP 
-		velocity.y -=1
+		velocity.y -= 1
 	elif Input.is_action_pressed("down"):
 		#handles DOWN
-		velocity.y +=1
+		velocity.y += 1
 	
 	#normalize velocity
 	# normalize is some math bs to us now 
