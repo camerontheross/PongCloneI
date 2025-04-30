@@ -1,50 +1,49 @@
 extends CharacterBody2D
 
-const MAX_SPEED: int = 750
-const SERVE_SPEED: int = 400
-var speed: int = 0
-var center
-var direction: int
+const MAX_SPEED: float = 750
+const SERVE_SPEED: float = 400
+var speed: float = 0
+
 @export var acceleration = 50
 signal reset()
 
 func _ready():
+	randomize()
 	
 	#this lines pretty neat - basically the ball calculates the 
 	#center of the screen using the viewport
-	center = get_viewport().get_visible_rect().size / 2
-	position = center
+	position = get_viewport().get_visible_rect().size / 2
 	speed = SERVE_SPEED
+	acceleration = 50
 	
-	#randomize sets a new seed based on the time
-	randomize()
 	#randonmy picks from the array
 	#this lets us make sure it only picks from -1 and 1
-	direction = [-1, 1].pick_random()
+	velocity.x = [-1, 1].pick_random()
+	velocity.y = 0
 
 #resets position and reverses direction 
-func serve():
-	position = center
-	direction *= -1
-	speed = SERVE_SPEED
 
 func _physics_process(delta):
-	
 	if Input.is_action_just_released("reveal him"):
 		serve()
 	
-	velocity.x = direction
-	velocity = velocity.normalized() * speed
-	move_and_collide(velocity * delta) 
+	var collision = move_and_collide(velocity * speed * delta)
+	
+	if collision:
+		if velocity.y == 0:
+			velocity.y = collision.get_collider_velocity().normalized().y
+		
+		accelerate()
+		velocity = velocity.bounce(collision.get_normal())
 
-func bounce(body: Node2D) -> void:
-	#print ("cameron isn't that bad actually")
-	direction *= -1
+func accelerate():
 	if speed < MAX_SPEED:
 		speed += acceleration
-	print (speed)
+		acceleration *= 1.5
 
-
+func serve():
+	_ready()
 
 func _on_reset() -> void:
+	print("reset")
 	serve()

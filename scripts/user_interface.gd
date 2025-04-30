@@ -25,10 +25,19 @@ func left_add_points():
 #when right side scores
 func right_add_points():
 	points_right += 1
-	score_display_left.text = str(points_right)
+	score_display_right.text = str(points_right)
 
 
-func score_left(ball: Area2D) -> void:
+
+
+
+func _on_score_wall_left_body_entered(body):
 	right_add_points()
-	print (ball)
-	ball.emit_signal("reset()")
+	print(body)
+	body.emit_signal("reset")
+
+
+func _on_score_wall_right_body_entered(body):
+	left_add_points()
+	print(body)
+	body.emit_signal("reset")

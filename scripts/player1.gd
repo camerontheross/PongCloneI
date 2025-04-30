@@ -24,7 +24,7 @@ extends CharacterBody2D
 #Global variables and constants defined at top
 #defining variable type at beginning helps save us some time
 #good practice for when we optimize later games
-const SPEED: float = 500
+const SPEED: float = 550
 @onready var p_body: ColorRect = $ColorRect
 #game window height
 @onready var win_height: float = get_viewport_rect().size.y
@@ -49,7 +49,6 @@ func _ready():
 func _physics_process(delta):
 	#set the velocity variable to a Vector2 (vector math for movement)
 	velocity = Vector2()
-	
 	#checks for player input
 	if Input.is_action_pressed("up"):
 		#handles UP 
@@ -58,12 +57,11 @@ func _physics_process(delta):
 		#handles DOWN
 		velocity.y += 1
 	
-	#normalize velocity
+	# normalize velocity
 	# normalize is some math bs to us now 
 	# but just know it's important to fixing movement script math 
 	velocity = velocity.normalized() * SPEED 
-	move_and_collide(velocity*delta) 
-	
+	move_and_collide(velocity * delta) 
 	#clamp sets a min and a max for variables
 	#in this example we set a min and a max to the players Y position
 	position.y = clamp(position.y, p_height / 2, win_height - p_height / 2)

@@ -4,6 +4,7 @@
 size = Vector2(19, 114)
 
 [node name="paddle" type="CharacterBody2D"]
+metadata/bounce_mod = 0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -9.0

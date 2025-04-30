@@ -4,7 +4,8 @@
 size = Vector2(20, 670)
 
 [node name="score_wall" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 325)
 shape = SubResource("RectangleShape2D_735rr")
