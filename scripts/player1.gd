@@ -25,13 +25,13 @@ extends CharacterBody2D
 #defining variable type at beginning helps save us some time
 #good practice for when we optimize later games
 const SPEED: float = 550
+var y_bounce_dir = 0
 @onready var p_body: ColorRect = $ColorRect
 #game window height
 @onready var win_height: float = get_viewport_rect().size.y
 #game player height
 @onready var p_height: float = $ColorRect.get_size().y
-#var win_height : int
-#var p_height : int
+
 
 
 #made this useless for now (Monday April 28)
@@ -65,3 +65,22 @@ func _physics_process(delta):
 	#clamp sets a min and a max for variables
 	#in this example we set a min and a max to the players Y position
 	position.y = clamp(position.y, p_height / 2, win_height - p_height / 2)
+
+
+
+
+
+func _on_middle_body_entered(body):
+	y_bounce_dir = 0
+	body.emit_signal("y_bounce", y_bounce_dir)
+
+
+func _on_top_body_entered(body):
+	y_bounce_dir = -1
+	body.emit_signal("y_bounce", y_bounce_dir)
+
+
+
+func _on_bottom_body_entered(body):
+	y_bounce_dir = 1
+	body.emit_signal("y_bounce", y_bounce_dir)

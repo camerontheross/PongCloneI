@@ -5,6 +5,7 @@ const SERVE_SPEED: float = 400
 var speed: float = 0
 
 @export var acceleration = 50
+signal y_bounce(y_new_dir: int)
 signal reset()
 
 func _ready():
@@ -30,8 +31,6 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * speed * delta)
 	
 	if collision:
-		if velocity.y == 0:
-			velocity.y = collision.get_collider_velocity().normalized().y
 		
 		accelerate()
 		velocity = velocity.bounce(collision.get_normal())
@@ -43,7 +42,12 @@ func accelerate():
 
 func serve():
 	_ready()
+	
+
 
 func _on_reset() -> void:
-	print("reset")
 	serve()
+
+
+func _on_y_bounce(y_new_dir):
+	velocity.y = y_new_dir
