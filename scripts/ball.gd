@@ -3,6 +3,8 @@ extends CharacterBody2D
 const MAX_SPEED: float = 750
 const SERVE_SPEED: float = 420
 var speed: float = 0
+@onready var bump: AudioStreamPlayer2D = $bump
+
 
 @export var acceleration = 50
 signal y_bounce(y_new_dir: int)
@@ -30,6 +32,7 @@ func _physics_process(delta):
 	
 	var collision = move_and_collide(velocity * speed * delta)
 	if collision:
+		bump.play()
 		accelerate()
 		velocity = velocity.bounce(collision.get_normal())
 
