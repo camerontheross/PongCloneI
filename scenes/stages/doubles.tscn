@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://7feiystvlqnq"]
+[gd_scene load_steps=9 format=3 uid="uid://7feiystvlqnq"]
 
 [ext_resource type="Script" uid="uid://jmt4s40tgl5e" path="res://scripts/user_interface.gd" id="1_o3mcv"]
 [ext_resource type="PackedScene" uid="uid://cd7bun7kekqce" path="res://scenes/components/bounce_wall.tscn" id="1_up7i2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bb2pes6wlheoq" path="res://scenes/entity/paddle.tscn" id="3_llouv"]
 [ext_resource type="PackedScene" uid="uid://cj6i60oh5ic80" path="res://scenes/menu/pause_menu.tscn" id="3_y3h56"]
 [ext_resource type="PackedScene" uid="uid://bg4ocn01gvnms" path="res://scenes/entity/paddleP2.tscn" id="7_o3mcv"]
+[ext_resource type="PackedScene" uid="uid://dlrhxke36qpex" path="res://scenes/entity/ball.tscn" id="8_j3v4h"]
 
 [node name="main" type="Node2D"]
 
@@ -101,28 +102,39 @@ offset_bottom = 324.0
 [node name="Edges" type="Node" parent="."]
 
 [node name="ceiling" parent="Edges" instance=ExtResource("1_up7i2")]
-position = Vector2(1, -6)
+position = Vector2(576, 0)
 
 [node name="floor" parent="Edges" instance=ExtResource("1_up7i2")]
-position = Vector2(-11, 653)
+position = Vector2(576, 648)
 
 [node name="score_wall_left" parent="Edges" instance=ExtResource("2_ahd6f")]
 unique_name_in_owner = true
-position = Vector2(-11, 9)
+position = Vector2(0, 324)
 
 [node name="score_wall_right" parent="Edges" instance=ExtResource("2_ahd6f")]
 unique_name_in_owner = true
-position = Vector2(1162, 7)
+position = Vector2(1162, 324)
 
 [node name="Paddles" type="Node" parent="."]
 
 [node name="paddle" parent="Paddles" instance=ExtResource("3_llouv")]
 z_index = 1
-position = Vector2(106, 324)
+position = Vector2(69, 324)
+scale = Vector2(0.8, 0.8)
+collision_layer = 3
+collision_mask = 3
 slide_on_ceiling = false
 
-[node name="paddleP2" parent="Paddles" instance=ExtResource("7_o3mcv")]
+[node name="paddle2" parent="Paddles" instance=ExtResource("7_o3mcv")]
 position = Vector2(1078, 324)
+scale = Vector2(0.8, 0.8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+
+[node name="Ball" parent="." instance=ExtResource("8_j3v4h")]
+position = Vector2(110, 309)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="Edges/score_wall_left" to="UserInterface" method="_on_score_wall_left_body_entered"]
+[connection signal="body_entered" from="Edges/score_wall_right" to="UserInterface" method="_on_score_wall_right_body_entered"]
