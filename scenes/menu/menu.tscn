@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://xm4gj1r82wei"]
 
-[ext_resource type="Script" uid="uid://basj7e335ftdd" path="res://scripts/main_menu.gd" id="1_con2f"]
-[ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_yqeox"]
-[ext_resource type="FontFile" uid="uid://htbwdsovgl7k" path="res://assets/fonts/PixelOperator8.ttf" id="2_vjb58"]
+[ext_resource type="Script" uid="uid://basj7e335ftdd" path="res://scripts/main_menu.gd" id="1_e0arn"]
+[ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_037ec"]
+[ext_resource type="FontFile" uid="uid://htbwdsovgl7k" path="res://assets/fonts/PixelOperator8.ttf" id="3_y1o0p"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vjb58"]
 
@@ -30,7 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_con2f")
+script = ExtResource("1_e0arn")
 
 [node name="Static_Elements" type="Node" parent="."]
 
@@ -56,7 +56,7 @@ offset_right = 128.0
 offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_fonts/font = ExtResource("2_037ec")
 theme_override_font_sizes/font_size = 64
 text = "PONG"
 horizontal_alignment = 1
@@ -83,7 +83,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_pressed_color = Color(0.346155, 3.70005e-07, 7.21961e-08, 1)
-theme_override_fonts/font = ExtResource("2_vjb58")
+theme_override_fonts/font = ExtResource("3_y1o0p")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vjb58")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mhnvy")
@@ -95,7 +95,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.346155, 3.70005e-07, 7.21961e-08, 1)
-theme_override_fonts/font = ExtResource("2_vjb58")
+theme_override_fonts/font = ExtResource("3_y1o0p")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vjb58")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
@@ -107,7 +107,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.346155, 3.70005e-07, 7.21961e-08, 1)
-theme_override_fonts/font = ExtResource("2_vjb58")
+theme_override_fonts/font = ExtResource("3_y1o0p")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vjb58")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
@@ -120,7 +120,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.346155, 3.70005e-07, 7.21961e-08, 1)
-theme_override_fonts/font = ExtResource("2_vjb58")
+theme_override_fonts/font = ExtResource("3_y1o0p")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vjb58")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")

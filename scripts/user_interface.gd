@@ -33,11 +33,9 @@ func right_add_points():
 
 func _on_score_wall_left_body_entered(body):
 	right_add_points()
-	print(body)
 	body.emit_signal("reset")
 
 
 func _on_score_wall_right_body_entered(body):
 	left_add_points()
-	print(body)
 	body.emit_signal("reset")

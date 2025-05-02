@@ -6,13 +6,13 @@
 size = Vector2(19.5, 114)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lu16"]
-size = Vector2(26.5, 17)
+size = Vector2(26.5, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu5bs"]
-size = Vector2(26.5, 17)
+size = Vector2(26.5, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irimc"]
-size = Vector2(26.5, 17)
+size = Vector2(26.5, 20)
 
 [node name="paddle" type="CharacterBody2D"]
 collision_layer = 2
@@ -26,6 +26,7 @@ offset_left = -9.0
 offset_top = -57.0
 offset_right = 10.0
 offset_bottom = 57.0
+metadata/_edit_use_anchors_ = true
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, 0)
@@ -37,7 +38,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top"]
-position = Vector2(0, -48)
+position = Vector2(0, -41)
 shape = SubResource("RectangleShape2D_1lu16")
 
 [node name="bottom" type="Area2D" parent="."]
@@ -45,7 +46,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
-position = Vector2(0, 48)
+position = Vector2(0, 41)
 shape = SubResource("RectangleShape2D_fu5bs")
 
 [node name="middle" type="Area2D" parent="."]

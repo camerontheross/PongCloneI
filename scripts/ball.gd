@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const MAX_SPEED: float = 750
-const SERVE_SPEED: float = 400
+const SERVE_SPEED: float = 420
 var speed: float = 0
 
 @export var acceleration = 50
@@ -29,25 +29,21 @@ func _physics_process(delta):
 		serve()
 	
 	var collision = move_and_collide(velocity * speed * delta)
-	
 	if collision:
-		
 		accelerate()
 		velocity = velocity.bounce(collision.get_normal())
 
 func accelerate():
 	if speed < MAX_SPEED:
 		speed += acceleration
+		#speed *= 1.5
 		acceleration *= 1.5
 
 func serve():
 	_ready()
-	
-
 
 func _on_reset() -> void:
 	serve()
-
 
 func _on_y_bounce(y_new_dir):
 	velocity.y = y_new_dir

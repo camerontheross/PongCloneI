@@ -44,4 +44,4 @@ func _on_options_pressed():
 	get_tree().change_scene_to_file("res://scenes/menu/him.tscn")
 func _on_exit_pressed():
 	resume()
-	get_tree().change_scene_to_file("res://scenes/stages/menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
