@@ -4,6 +4,8 @@ const MAX_SPEED: float = 750
 const SERVE_SPEED: float = 420
 var speed: float = 0
 @onready var bump: AudioStreamPlayer2D = $bump
+@onready var serve_sound: AudioStreamPlayer = $serve_sound
+
 
 
 @export var acceleration = 50
@@ -44,6 +46,10 @@ func accelerate():
 
 func serve():
 	_ready()
+	#I put the sound in this function instead of the ready function because I don't want this sound to play
+	#at the end of the game start countdown. Placed here it will only start playing after the first score.
+	#P.S. this sound is better as a serve sound as opposed to a score sound, thus why I've placed it here.
+	serve_sound.play()
 
 func _on_reset() -> void:
 	serve()

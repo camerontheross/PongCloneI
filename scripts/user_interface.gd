@@ -17,7 +17,6 @@ extends Control
 @onready var score_display_left = $score_display_left
 @onready var score_display_right = $score_display_right
 #reference to the pause menu
-@onready var score_sound: AudioStreamPlayer = $Score
 
 # when left side scores
 func left_add_points():
@@ -29,16 +28,10 @@ func right_add_points():
 	score_display_right.text = str(points_right)
 
 
-
-
-
 func _on_score_wall_left_body_entered(body):
 	right_add_points()
 	body.emit_signal("reset")
-	score_sound.play()
-
 
 func _on_score_wall_right_body_entered(body):
 	left_add_points()
 	body.emit_signal("reset")
-	score_sound.play()

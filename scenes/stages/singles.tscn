@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://qyb75576tckm"]
+[gd_scene load_steps=9 format=3 uid="uid://qyb75576tckm"]
 
 [ext_resource type="Script" uid="uid://jmt4s40tgl5e" path="res://scripts/user_interface.gd" id="1_7wo0r"]
 [ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_131oq"]
 [ext_resource type="PackedScene" uid="uid://cj6i60oh5ic80" path="res://scenes/menu/pause_menu.tscn" id="3_j5bpy"]
 [ext_resource type="PackedScene" uid="uid://cd7bun7kekqce" path="res://scenes/components/bounce_wall.tscn" id="4_2d3nk"]
-[ext_resource type="AudioStream" uid="uid://b6jqb75ik7ii7" path="res://assets/sounds/Score.wav" id="4_131oq"]
 [ext_resource type="PackedScene" uid="uid://d21vhk66swn6n" path="res://scenes/components/score_wall.tscn" id="5_2aevv"]
 [ext_resource type="PackedScene" uid="uid://bb2pes6wlheoq" path="res://scenes/entity/paddle.tscn" id="6_305fk"]
 [ext_resource type="PackedScene" uid="uid://tnvbfxtk485j" path="res://scenes/entity/paddle_computer.tscn" id="7_o104j"]
@@ -99,10 +98,6 @@ offset_left = -576.0
 offset_top = -324.0
 offset_right = 576.0
 offset_bottom = 324.0
-
-[node name="Score" type="AudioStreamPlayer" parent="UserInterface"]
-stream = ExtResource("4_131oq")
-mix_target = 2
 
 [node name="Edges" type="Node" parent="."]
 
