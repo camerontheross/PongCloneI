@@ -28,13 +28,9 @@ func right_add_points():
 	score_display_right.text = str(points_right)
 
 
-
-
-
 func _on_score_wall_left_body_entered(body):
 	right_add_points()
 	body.emit_signal("reset")
-
 
 func _on_score_wall_right_body_entered(body):
 	left_add_points()
