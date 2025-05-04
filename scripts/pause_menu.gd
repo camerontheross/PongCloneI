@@ -3,6 +3,7 @@ extends Control
 
 @onready var title = $Title
 @onready var timer = $Timer
+signal options
 
 func _ready():
 	#the timer is to get the blinking pause text
@@ -41,7 +42,12 @@ func _on_timer_timeout():
 func _on_restart_pressed():
 	get_tree().reload_current_scene()
 func _on_options_pressed():
-	get_tree().change_scene_to_file("res://scenes/menu/him.tscn")
+	emit_signal("options")
+	visible = false
 func _on_exit_pressed():
 	resume()
 	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
+
+
+func _on_options_back():
+	visible = true

@@ -36,7 +36,7 @@ script = ExtResource("1_kukqi")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.7
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

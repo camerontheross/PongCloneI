@@ -10,7 +10,7 @@ func _on_doubles_pressed():
 
 
 func _on_options_pressed():
-	pass
+	get_tree().change_scene_to_file("res://scenes/menu/options.tscn")
 
 
 func _on_exit_pressed():
