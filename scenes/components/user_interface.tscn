@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://oqid21cbro76"]
 
-[ext_resource type="Script" uid="uid://jmt4s40tgl5e" path="res://scripts/user_interface.gd" id="1_fj7ho"]
-[ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_neslh"]
-[ext_resource type="PackedScene" uid="uid://cj6i60oh5ic80" path="res://scenes/menu/pause_menu.tscn" id="3_8sngj"]
-[ext_resource type="PackedScene" uid="uid://ds2m7ndkregyi" path="res://scenes/menu/options.tscn" id="4_neslh"]
+[ext_resource type="Script" uid="uid://jmt4s40tgl5e" path="res://scripts/user_interface.gd" id="1_xp3lm"]
+[ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_v286r"]
+[ext_resource type="PackedScene" uid="uid://cj6i60oh5ic80" path="res://scenes/components/pause_menu.tscn" id="3_vjxmx"]
+[ext_resource type="PackedScene" uid="uid://ds2m7ndkregyi" path="res://scenes/menu/options.tscn" id="4_5wgxr"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -14,7 +14,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fj7ho")
+script = ExtResource("1_xp3lm")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -58,7 +58,7 @@ offset_top = 8.0
 offset_right = -32.0
 offset_bottom = 72.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_neslh")
+theme_override_fonts/font = ExtResource("2_v286r")
 theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
@@ -75,13 +75,13 @@ offset_top = 8.0
 offset_right = 96.0
 offset_bottom = 72.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_neslh")
+theme_override_fonts/font = ExtResource("2_v286r")
 theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_8sngj")]
+[node name="PauseMenu" parent="." instance=ExtResource("3_vjxmx")]
 visible = false
 z_index = 3
 layout_mode = 1
@@ -95,7 +95,7 @@ offset_top = -324.0
 offset_right = 576.0
 offset_bottom = 324.0
 
-[node name="options" parent="." instance=ExtResource("4_neslh")]
+[node name="options" parent="." instance=ExtResource("4_5wgxr")]
 layout_mode = 1
 
 [connection signal="options" from="PauseMenu" to="options" method="_on_pause_menu_options"]

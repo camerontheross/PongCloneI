@@ -29,9 +29,6 @@ func _ready():
 #resets position and reverses direction 
 
 func _physics_process(delta):
-	if Input.is_action_just_released("reveal him"):
-		serve()
-	
 	var collision = move_and_collide(velocity * speed * delta)
 	if collision:
 		bump.play()
@@ -51,8 +48,9 @@ func serve():
 	#P.S. this sound is better as a serve sound as opposed to a score sound, thus why I've placed it here.
 	serve_sound.play()
 
-func _on_reset() -> void:
-	serve()
+func _on_reset(can_reset: bool):
+	if can_reset:
+		serve()
 
 func _on_y_bounce(y_new_dir):
 	velocity.y = y_new_dir

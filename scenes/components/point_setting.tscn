@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv3ahhuutve51"]
+
+[ext_resource type="Script" uid="uid://ckbk300f1bx8q" path="res://scripts/point_setting.gd" id="1_shn67"]
+
+[node name="point_setting" type="SpinBox"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -26.0
+offset_right = 82.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+min_value = 5.0
+max_value = 20.0
+step = 5.0
+value = 10.0
+alignment = 1
+script = ExtResource("1_shn67")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

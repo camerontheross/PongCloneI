@@ -38,13 +38,11 @@ func _physics_process(delta):
 func _on_middle_body_entered(body):
 	y_bounce_dir = 0 + (velocity.normalized().y * .1)
 	body.emit_signal("y_bounce", y_bounce_dir)
-	print("mid")
+
 func _on_top_body_entered(body):
 	y_bounce_dir = (-1 * .3) + (velocity.normalized().y * .5)
 	body.emit_signal("y_bounce", y_bounce_dir)
-	print("top")
 
 func _on_bottom_body_entered(body):
 	y_bounce_dir = (1 * .3) + (velocity.normalized().y * .5)
 	body.emit_signal("y_bounce", y_bounce_dir)
-	print("bot")

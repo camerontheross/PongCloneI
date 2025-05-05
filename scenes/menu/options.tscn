@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds2m7ndkregyi"]
+[gd_scene load_steps=7 format=3 uid="uid://ds2m7ndkregyi"]
 
 [ext_resource type="Theme" uid="uid://fyt7mt6btc11" path="res://assets/game_theme.tres" id="1_mhv7b"]
 [ext_resource type="Script" uid="uid://cf7ljqqxixxvd" path="res://scripts/options.gd" id="1_ubx11"]
 [ext_resource type="FontFile" uid="uid://htbwdsovgl7k" path="res://assets/fonts/PixelOperator8.ttf" id="3_knos3"]
+[ext_resource type="PackedScene" uid="uid://cv3ahhuutve51" path="res://scenes/components/point_setting.tscn" id="3_ut0dv"]
+[ext_resource type="PackedScene" uid="uid://lhvfcmhqqa7s" path="res://scenes/components/volume_slider.tscn" id="4_mhv7b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6cuv"]
 bg_color = Color(0, 0, 0, 1)
@@ -64,10 +66,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -84.0
-offset_top = -49.0
-offset_right = 84.0
-offset_bottom = 131.0
+offset_left = -93.0
+offset_top = -50.0
+offset_right = 89.0
+offset_bottom = 171.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
@@ -78,27 +80,30 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"options_text"
 text = "Points to win
+
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="point_setting" type="SpinBox" parent="Dynamic_Elements/pointsSettings"]
+[node name="point_setting" parent="Dynamic_Elements/pointsSettings" instance=ExtResource("3_ut0dv")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -82.0
-offset_top = -26.0
-offset_right = 82.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 0
-max_value = 20.0
-step = 5.0
-value = 10.0
-alignment = 1
+offset_top = -27.0
+offset_bottom = -3.0
+
+[node name="Master" type="Label" parent="Dynamic_Elements"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_knos3")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6cuv")
+text = "Master Volume
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="volume_slider" parent="Dynamic_Elements/Master" instance=ExtResource("4_mhv7b")]
+layout_mode = 1
+bus_name = "Master"
 
 [node name="SFX" type="Label" parent="Dynamic_Elements"]
 layout_mode = 2
@@ -106,20 +111,14 @@ size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_knos3")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_j6cuv")
-text = "SFX Volume"
+text = "SFX Volume
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Dynamic_Elements/SFX"]
+[node name="volume_slider" parent="Dynamic_Elements/SFX" instance=ExtResource("4_mhv7b")]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -16.0
-grow_horizontal = 2
-grow_vertical = 0
-value = 50.0
+bus_name = "SFX"
 
 [node name="Music" type="Label" parent="Dynamic_Elements"]
 layout_mode = 2
@@ -127,20 +126,14 @@ size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_knos3")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_j6cuv")
-text = "Music Volume"
+text = "Music Volume
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Dynamic_Elements/Music"]
+[node name="volume_slider" parent="Dynamic_Elements/Music" instance=ExtResource("4_mhv7b")]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -16.0
-grow_horizontal = 2
-grow_vertical = 0
-value = 50.0
+bus_name = "Music"
 
 [node name="Back" type="Button" parent="Dynamic_Elements"]
 layout_mode = 2

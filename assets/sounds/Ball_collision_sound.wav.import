@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d2wrnluusbnwq"
-path="res://.godot/imported/Ball collision sound.wav-8e950685ed1493ecfaea602152870127.sample"
+path="res://.godot/imported/Ball_collision_sound.wav-39fd2991ddb98ee0925ec5c04f152cec.sample"
 
 [deps]
 
-source_file="res://assets/sounds/Ball collision sound.wav"
-dest_files=["res://.godot/imported/Ball collision sound.wav-8e950685ed1493ecfaea602152870127.sample"]
+source_file="res://assets/sounds/Ball_collision_sound.wav"
+dest_files=["res://.godot/imported/Ball_collision_sound.wav-39fd2991ddb98ee0925ec5c04f152cec.sample"]
 
 [params]
 
