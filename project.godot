@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="viewport"
 
+[gui]
+
+theme/custom="uid://fyt7mt6btc11"
+
 [input]
 
 "reveal him"={

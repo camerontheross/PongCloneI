@@ -1,8 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://qyb75576tckm"]
+[gd_scene load_steps=7 format=3 uid="uid://qyb75576tckm"]
 
-[ext_resource type="Script" uid="uid://jmt4s40tgl5e" path="res://scripts/user_interface.gd" id="1_7wo0r"]
-[ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_131oq"]
-[ext_resource type="PackedScene" uid="uid://cj6i60oh5ic80" path="res://scenes/menu/pause_menu.tscn" id="3_j5bpy"]
+[ext_resource type="PackedScene" uid="uid://oqid21cbro76" path="res://scenes/menu/user_interface.tscn" id="1_xu4ol"]
 [ext_resource type="PackedScene" uid="uid://cd7bun7kekqce" path="res://scenes/components/bounce_wall.tscn" id="4_2d3nk"]
 [ext_resource type="PackedScene" uid="uid://d21vhk66swn6n" path="res://scenes/components/score_wall.tscn" id="5_2aevv"]
 [ext_resource type="PackedScene" uid="uid://bb2pes6wlheoq" path="res://scenes/entity/paddle.tscn" id="6_305fk"]
@@ -11,93 +9,7 @@
 
 [node name="main" type="Node2D"]
 
-[node name="UserInterface" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1152.0
-offset_bottom = 648.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_7wo0r")
-
-[node name="Background" type="ColorRect" parent="UserInterface"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="CenterLine" type="ColorRect" parent="UserInterface"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -400.0
-offset_right = 4.0
-offset_bottom = 400.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="score_display_left" type="Label" parent="UserInterface"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -96.0
-offset_top = 8.0
-offset_right = -32.0
-offset_bottom = 72.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_131oq")
-theme_override_font_sizes/font_size = 64
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="score_display_right" type="Label" parent="UserInterface"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 32.0
-offset_top = 8.0
-offset_right = 96.0
-offset_bottom = 72.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_131oq")
-theme_override_font_sizes/font_size = 64
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PauseMenu" parent="UserInterface" instance=ExtResource("3_j5bpy")]
-visible = false
-z_index = 3
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+[node name="UserInterface" parent="." instance=ExtResource("1_xu4ol")]
 
 [node name="Edges" type="Node" parent="."]
 
@@ -137,6 +49,3 @@ position = Vector2(576, 324)
 [node name="Ball" parent="." instance=ExtResource("8_nv5le")]
 position = Vector2(110, 309)
 scale = Vector2(0.5, 0.5)
-
-[connection signal="body_entered" from="Edges/score_wall_left" to="UserInterface" method="_on_score_wall_left_body_entered"]
-[connection signal="body_entered" from="Edges/score_wall_right" to="UserInterface" method="_on_score_wall_right_body_entered"]
