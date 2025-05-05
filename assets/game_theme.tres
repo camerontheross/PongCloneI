@@ -1,7 +1,10 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://fyt7mt6btc11"]
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://fyt7mt6btc11"]
 
 [ext_resource type="FontFile" uid="uid://htbwdsovgl7k" path="res://assets/fonts/PixelOperator8.ttf" id="1_tgk0f"]
+[ext_resource type="Texture2D" uid="uid://8k8nnjgovqn" path="res://assets/sprites/pong_grabber.png" id="2_j6cuv"]
 [ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_s1n0q"]
+[ext_resource type="Texture2D" uid="uid://cf7l4fl83ub02" path="res://assets/sprites/pong_down_arrow.png" id="4_ercdv"]
+[ext_resource type="Texture2D" uid="uid://b5w35a6dsehp0" path="res://assets/sprites/pong_up_arrow.png" id="5_aaxgn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgk0f"]
 content_margin_left = 4.0
@@ -47,7 +50,34 @@ corner_detail = 5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty2no"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaxgn"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ercdv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6cuv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ty2no"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ercdv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4oq3s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aaxgn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbybe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a8j7d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6cuv"]
 bg_color = Color(0, 0, 0, 1)
@@ -82,7 +112,12 @@ Button/styles/focus = SubResource("StyleBoxEmpty_s1n0q")
 Button/styles/hover = SubResource("StyleBoxFlat_7l7mv")
 Button/styles/normal = SubResource("StyleBoxFlat_5d2l8")
 Button/styles/pressed = SubResource("StyleBoxFlat_s1n0q")
+HSlider/icons/grabber = ExtResource("2_j6cuv")
+HSlider/icons/grabber_disabled = ExtResource("2_j6cuv")
+HSlider/icons/grabber_highlight = ExtResource("2_j6cuv")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ty2no")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_aaxgn")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ercdv")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/line_spacing = 3
@@ -94,6 +129,25 @@ Label/font_sizes/font_size = 64
 Label/font_sizes/font_small = 16
 Label/fonts/font = ExtResource("2_s1n0q")
 Label/styles/normal = SubResource("StyleBoxEmpty_j6cuv")
+LineEdit/fonts/font = ExtResource("1_tgk0f")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_ty2no")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_ercdv")
+SpinBox/colors/down_disabled_icon_modulate = Color(0, 0, 0, 1)
+SpinBox/colors/up_disabled_icon_modulate = Color(0, 0, 0, 1)
+SpinBox/constants/field_and_buttons_separation = 0
+SpinBox/fonts/font = ExtResource("1_tgk0f")
+SpinBox/icons/down = ExtResource("4_ercdv")
+SpinBox/icons/down_disabled = ExtResource("4_ercdv")
+SpinBox/icons/down_hover = ExtResource("4_ercdv")
+SpinBox/icons/down_pressed = ExtResource("4_ercdv")
+SpinBox/icons/up = ExtResource("5_aaxgn")
+SpinBox/icons/up_disabled = ExtResource("5_aaxgn")
+SpinBox/icons/up_hover = ExtResource("5_aaxgn")
+SpinBox/icons/up_pressed = ExtResource("5_aaxgn")
+SpinBox/styles/down_background_hovered = SubResource("StyleBoxEmpty_4oq3s")
+SpinBox/styles/down_background_pressed = SubResource("StyleBoxEmpty_aaxgn")
+SpinBox/styles/up_background_hovered = SubResource("StyleBoxEmpty_lbybe")
+SpinBox/styles/up_background_pressed = SubResource("StyleBoxEmpty_a8j7d")
 VBoxContainer/constants/separation = 8
 label_options/base_type = &"Label"
 options_text/base_type = &"Label"
