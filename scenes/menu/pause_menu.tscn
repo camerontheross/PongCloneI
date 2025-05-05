@@ -1,22 +1,21 @@
 [gd_scene load_steps=8 format=3 uid="uid://cj6i60oh5ic80"]
 
 [ext_resource type="Script" uid="uid://blviswib3l25o" path="res://scripts/pause_menu.gd" id="1_kukqi"]
+[ext_resource type="Theme" uid="uid://fyt7mt6btc11" path="res://assets/game_theme.tres" id="1_msl3b"]
 [ext_resource type="FontFile" uid="uid://htbwdsovgl7k" path="res://assets/fonts/PixelOperator8.ttf" id="1_n87rw"]
 [ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_myx47"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kukqi"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l7mv"]
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l7mv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -31,6 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_msl3b")
 script = ExtResource("1_kukqi")
 
 [node name="Timer" type="Timer" parent="."]
@@ -87,12 +87,6 @@ alignment = 1
 [node name="Restart" type="Button" parent="Dynamic_Elements"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_pressed_color = Color(0.346155, 3.70005e-07, 7.21961e-08, 1)
-theme_override_fonts/font = ExtResource("1_n87rw")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/focus = SubResource("StyleBoxEmpty_myx47")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kukqi")
-theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
 text = "Restart"
 
 [node name="Options" type="Button" parent="Dynamic_Elements"]

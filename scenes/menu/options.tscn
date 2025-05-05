@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://ds2m7ndkregyi"]
 
+[ext_resource type="Theme" uid="uid://fyt7mt6btc11" path="res://assets/game_theme.tres" id="1_mhv7b"]
 [ext_resource type="Script" uid="uid://cf7ljqqxixxvd" path="res://scripts/options.gd" id="1_ubx11"]
-[ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_mhv7b"]
 [ext_resource type="FontFile" uid="uid://htbwdsovgl7k" path="res://assets/fonts/PixelOperator8.ttf" id="3_knos3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6cuv"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -21,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_mhv7b")
 script = ExtResource("1_ubx11")
 
 [node name="Timer" type="Timer" parent="."]
@@ -50,8 +51,6 @@ offset_right = 160.0
 offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_mhv7b")
-theme_override_font_sizes/font_size = 64
 text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -74,18 +73,16 @@ grow_vertical = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Options" type="Label" parent="Dynamic_Elements"]
+[node name="pointsSettings" type="Label" parent="Dynamic_Elements"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_knos3")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+theme_type_variation = &"options_text"
 text = "Points to win
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SpinBox" type="SpinBox" parent="Dynamic_Elements/Options"]
+[node name="SpinBox" type="SpinBox" parent="Dynamic_Elements/pointsSettings"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -97,17 +94,17 @@ grow_vertical = 0
 value = 10.0
 alignment = 1
 
-[node name="Music" type="Label" parent="Dynamic_Elements"]
+[node name="SFX" type="Label" parent="Dynamic_Elements"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_knos3")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
-text = "Music Volume"
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6cuv")
+text = "SFX Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Dynamic_Elements/Music"]
+[node name="HSlider" type="HSlider" parent="Dynamic_Elements/SFX"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -125,7 +122,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_knos3")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6cuv")
 text = "Back"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
