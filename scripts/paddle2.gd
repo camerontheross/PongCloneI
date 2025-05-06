@@ -29,8 +29,8 @@ func _physics_process(delta):
 		#handles DOWN
 		velocity.y += 1
 	
-	velocity = velocity.normalized() * SPEED 
-	move_and_collide(velocity * delta) 
+	velocity *= SPEED 
+	move_and_slide()
 	position.y = clamp(position.y, p_height / 2, win_height - p_height / 2)
 
 

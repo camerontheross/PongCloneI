@@ -26,7 +26,6 @@ extends CharacterBody2D
 #good practice for when we optimize later games
 const SPEED: float = 550
 var y_bounce_dir = 0
-@onready var p_body: ColorRect = $ColorRect
 #game window height
 @onready var win_height: float = get_viewport_rect().size.y
 #game player height
@@ -57,11 +56,9 @@ func _physics_process(delta):
 		#handles DOWN
 		velocity.y += 1
 	
-	# normalize velocity
-	# normalize is some math bs to us now 
-	# but just know it's important to fixing movement script math 
-	velocity = velocity.normalized() * SPEED 
-	move_and_collide(velocity * delta) 
+	velocity *= SPEED
+	
+	move_and_slide()
 	#clamp sets a min and a max for variables
 	#in this example we set a min and a max to the players Y position
 	position.y = clamp(position.y, p_height / 2, win_height - p_height / 2)

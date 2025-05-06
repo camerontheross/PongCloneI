@@ -1,17 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://tnvbfxtk485j"]
+[gd_scene load_steps=6 format=3 uid="uid://tnvbfxtk485j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
-size = Vector2(19, 114)
+[ext_resource type="Script" uid="uid://dl64i0tquqqb6" path="res://scripts/paddle_computer.gd" id="1_j50ix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7wee"]
+size = Vector2(19.5, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lu16"]
+size = Vector2(26.5, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu5bs"]
+size = Vector2(26.5, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irimc"]
+size = Vector2(26.5, 20)
 
 [node name="paddle" type="CharacterBody2D"]
-metadata/bounce_mod = 0
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_j50ix")
+metadata/dir_mod = Vector2(0.5, 0.5)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -9.0
 offset_top = -57.0
 offset_right = 10.0
 offset_bottom = 57.0
+metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_g2brh")
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 0)
+shape = SubResource("RectangleShape2D_y7wee")
+metadata/dir_mod = Vector2(0.5, 0.5)
+
+[node name="top" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top"]
+position = Vector2(0, -41)
+shape = SubResource("RectangleShape2D_1lu16")
+
+[node name="bottom" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
+position = Vector2(0, 41)
+shape = SubResource("RectangleShape2D_fu5bs")
+
+[node name="middle" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="middle"]
+shape = SubResource("RectangleShape2D_irimc")
+
+[connection signal="body_entered" from="top" to="." method="_on_top_body_entered"]
+[connection signal="body_entered" from="bottom" to="." method="_on_bottom_body_entered"]
+[connection signal="body_entered" from="middle" to="." method="_on_middle_body_entered"]
