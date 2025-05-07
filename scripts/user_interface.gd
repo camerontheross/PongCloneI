@@ -14,8 +14,8 @@ extends Control
 #when respective goal is touched
 
 #variables storing the score displays on screen
-@onready var score_display_left = $score_display_left
-@onready var score_display_right = $score_display_right
+@onready var score_display_left = %score_display_left
+@onready var score_display_right = %score_display_right
 #reference to the pause menu
 
 func score_check() -> bool:
