@@ -17,17 +17,8 @@ extends Control
 @onready var score_display_left = %score_display_left
 @onready var score_display_right = %score_display_right
 #reference to the pause menu
-var time_to_start: int = 3
-@onready var count_down_sound: AudioStreamPlayer = $count_down_sound
-@onready var timer: Timer = $Countdowntimer
 
 
-func _ready():
-	time_to_start = 3
-	while time_to_start != 0:
-		print (time_to_start)
-		count_down_sound.play()
-		timer.start
 
 func score_check() -> bool:
 	if points_left == Global.get_points_to_win():
@@ -62,7 +53,3 @@ func _on_score_wall_left_body_entered(body):
 func _on_score_wall_right_body_entered(body):
 	left_add_points()
 	body.emit_signal("reset", score_check())
-
-
-func _on_countdowntimer_timeout() -> void:
-	time_to_start -= 1
