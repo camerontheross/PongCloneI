@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://oqid21cbro76"]
+[gd_scene load_steps=6 format=3 uid="uid://oqid21cbro76"]
 
 [ext_resource type="Script" uid="uid://jmt4s40tgl5e" path="res://scripts/user_interface.gd" id="1_xp3lm"]
 [ext_resource type="FontFile" uid="uid://ck1po0lf1nbb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_v286r"]
 [ext_resource type="PackedScene" uid="uid://cj6i60oh5ic80" path="res://scenes/components/pause_menu.tscn" id="3_vjxmx"]
 [ext_resource type="PackedScene" uid="uid://ds2m7ndkregyi" path="res://scenes/menu/options.tscn" id="4_5wgxr"]
+[ext_resource type="AudioStream" uid="uid://bi43p57c2dutg" path="res://assets/sounds/countdown.wav" id="5_v286r"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -98,5 +99,11 @@ offset_bottom = 324.0
 [node name="options" parent="." instance=ExtResource("4_5wgxr")]
 layout_mode = 1
 
+[node name="Countdowntimer" type="Timer" parent="."]
+
+[node name="count_down_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_v286r")
+
 [connection signal="options" from="PauseMenu" to="options" method="_on_pause_menu_options"]
 [connection signal="back" from="options" to="PauseMenu" method="_on_options_back"]
+[connection signal="timeout" from="Countdowntimer" to="." method="_on_countdowntimer_timeout"]
