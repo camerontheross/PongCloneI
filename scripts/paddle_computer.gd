@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED: float = 550
+const SPEED: float = 560
 var y_bounce_dir = 0
 
 var ball_pos: Vector2
@@ -32,19 +32,29 @@ func _physics_process(delta):
 		target = position.y
 	
 	
-	
 	dist = target - position.y
 	if can_move() and abs(dist) > 25:
 		direction = sign(dist)
 		velocity.y = direction * SPEED
 	else:
 		velocity.y = 0
-	
-	
-	
 	move_and_slide()
 	# Keep paddle within screen bounds
 	position.y = clamp(position.y, p_height / 2, win_height - p_height / 2)
+
+
+func get_ball_target() -> int:
+	if error_margin_set:
+		error_margin = randf_range(-65.0, 65.0)
+		error_margin_set = false
+	
+	return round(ball_pos.y + (position.x - ball_pos.x) * (ball_vel.y / ball_vel.x)) + error_margin
+func get_center_target() -> int:
+	if !error_margin_set:
+		error_margin = randf_range(-100.0, 100.0)
+		error_margin_set = true
+	
+	return round(win_height/2) + error_margin
 
 func ball_incoming() -> bool:
 	if %Ball.velocity.x > 0:
@@ -52,18 +62,7 @@ func ball_incoming() -> bool:
 		return true
 	else: 
 		return false
-func get_ball_target() -> int:
-	if error_margin_set:
-		error_margin = randf_range(-30.0, 30.0)
-		error_margin_set = false
-	
-	return round(ball_pos.y + (position.x - ball_pos.x) * (ball_vel.y / ball_vel.x)) + error_margin
-func get_center_target() -> int:
-	if !error_margin_set:
-		error_margin = randf_range(-90.0, 90.0)
-		error_margin_set = true
-	
-	return round(win_height/2) + error_margin
+
 func can_move() -> bool:
 	if ball_incoming() and ball_pos.x > abs(win_width / 3) + ball.speed/3:
 		return true

@@ -24,7 +24,7 @@ extends CharacterBody2D
 #Global variables and constants defined at top
 #defining variable type at beginning helps save us some time
 #good practice for when we optimize later games
-const SPEED: float = 550
+const SPEED: float = 560
 var y_bounce_dir = 0
 #game window height
 @onready var win_height: float = get_viewport_rect().size.y
