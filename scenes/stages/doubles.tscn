@@ -45,5 +45,6 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(576, 324)
 
 [node name="Ball" parent="." instance=ExtResource("8_j3v4h")]
+unique_name_in_owner = true
 position = Vector2(110, 309)
 scale = Vector2(0.5, 0.5)
